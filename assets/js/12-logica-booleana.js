@@ -1,73 +1,85 @@
 
 
 const regresaTrue = () => {
-    console.log('regresa true');
+    console.log('Regresa True');
     return true;
-}
+} 
 
 const regresaFalse = () => {
-    console.log('regresa false');
+    console.log('Regresa false');
     return false;
 }
 
-console.warn( 'not o la negacion');
-console.log( true ); 
-console.log( 'negacion true',!true );
-console.log( 'negacion false', !false ); 
+
+console.warn('Not o Negación: !');
+console.log(true);//true 
+console.log(!true);//false 
+console.log(!false);//true 
+
+console.log(!regresaFalse());//true 
+
+console.warn('And'); //true si todos los valores son verdaderos
+console.log( true && true ); //true
+console.log( true && false ); //false
+console.log( true && !false );//true
 
 
-console.log( !regresaFalse() ) //true
+console.log('=========')
+//si el primero es falso ignora las siguientes proposiciones
+console.log( regresaFalse() && regresaTrue() )//false
+console.log( regresaTrue()  && regresaFalse() ) //false
 
+regresaTrue()  && regresaFalse()
 
-console.warn('And');
-console.log(true && true);//true
-console.log(true && !false);//true
-
-console.log('=======');
-console.log(regresaFalse() && regresaTrue()); // false porque la primera es false, ignora lo demas
-
-console.log(regresaTrue() && regresaFalse()); // false
-
-
-console.log('===== && =====')
+console.log('====&&=====')
 regresaFalse() && regresaTrue()
 
-console.log('4 consiciones &&:', true && true && true && false);
+//mas de una condicion
+console.log( '4 condiciones', true && true && true && false ); //false
 
-console.log('OR')//true
+
+console.warn('OR')//una de las dos tiene que ser true y el resultado es tru
 console.log( true || false );
 console.log( false || false );
 
-console.log(regresaTrue() || regresaFalse());
+//no se ejecuta el segundo porque el primero ya es true
+console.log( regresaTrue()  || regresaFalse() )
+console.log( '4 condiciones', true || true || true || false ); //false
 
-console.log('4 consiciones ||:', true || true ||true || false);
-
-
-
-console.warn('asignaciones');
+//protips
+console.warn('Asignaciones')
 
 const soyUndefined = undefined;
 const soyNull      = null;
 const soyFalso     = false;
+ 
+const a1 = true && 'Hola Mundo' && 150; //?
+//se le asigna el ultimo valor a la variable
+const a2 = false && 'Hola Mundo' && 150; //?
+//otro ej//hay almenos un false con &&
+const a3 = 'Hola' && 'Mundo' &  soyFalso ; 
+//
+const a4 = soyFalso || soyUndefined || soyNull || 'ya no soy falso'
+//
+const a5 = soyFalso || soyUndefined || regresaTrue() || 'ya no soy falso'
+console.log({a1,a2, a3, a4, a5});
 
+//la mayor parte de los usos
 
-const a1 = true && 'hola mundo' && 150;
-const a2 = false && 'hola mundo' && 150;
-const a3 = 'HOla ' &&  'Mundo'&& soyFalso && true;
-const a4 = soyFalso || 'ya no soy falso';
-const a5 = soyFalso || soyUndefined || soyNull || 'ya o soy falso de nuevo' || true 
-const a6 = soyFalso || soyUndefined || regresaTrue() || 'ya o soy falso de nuevo' || true 
-
-
-console.log({a1, a2, a3, a4, a5, a6 })
-
-
-
-if(true || true ||true || false) {
-    console.log('hacer largo');
+if( true || true || true || false) {
+    console.log('hacer algo')
 }else {
-    console.log('hacer otra cosa')
+    //esto está sombreado porque jamas se va a ejecutar
+    //porque arriba no deberia haber mas de 3 condiciones
+    console.log('hacer otra cosa');
 }
+
+
+
+
+
+
+
 
 
 
